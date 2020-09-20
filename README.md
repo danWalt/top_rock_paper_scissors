@@ -1,0 +1,1 @@
+First Javascript project in The Odin Project. A simple 5 rounds rock paper scissors game using the HTML script part and coding there while playing in the console.

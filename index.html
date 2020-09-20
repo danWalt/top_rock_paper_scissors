@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            let number = (Math.random() * 10)
+            if (number <= 3.33) {
+                return 'Rock'
+            }
+            else if (number > 3.3 && number <= 6.66) {
+                return 'Paper'
+            }
+            else {
+                return 'Scissors'
+            }
+        }
+        function oneRound(computerSelection, player) {
+            let playerSelection = player.charAt(0).toUpperCase() + player.slice(1).toLowerCase()
+            if (playerSelection == 'Rock' && computerSelection == 'Scissors'){
+                 return "User"
+            }
+            else if (playerSelection == 'Rock' && computerSelection == 'Paper'){
+                return "Computer"
+            }
+            else if (playerSelection == 'Paper' && computerSelection == 'Rock'){
+                return "User"
+            }
+            else if (playerSelection == 'Paper' && computerSelection == 'Scissors'){
+                 return "Computer"
+            }
+            else if (playerSelection == 'Scissors' && computerSelection == 'Paper'){
+                 return "User"
+            }
+            else if (playerSelection == 'Scissors' && computerSelection == 'Rock'){
+                 return "Computer"
+            }
+            else {
+                return "It's a tie!"
+            }
+        }
+
+        function game() {
+            let computerScore = 0
+            let userScore = 0
+            let roundsCount = 0
+            while (roundsCount < 5) {
+                console.log(`Current game score is computer: ${computerScore} and user: ${userScore}`);
+                let computerMove = computerPlay();
+                console.log(computerMove)
+                let userMove = prompt("User, please pick your move");
+                let result = oneRound(computerMove, userMove)
+                if (result == "User"){
+                    userScore++
+                    messageFunc(computerMove, userMove)
+                }
+                else if (result == "Computer"){
+                    computerScore++
+                    messageFunc(computerMove, userMove)
+                }
+                else{
+                    messageFunc(computerMove, userMove)
+                }
+                roundsCount++;
+            }
+            }
+        
+
+        function messageFunc(computerSelection, playerSelection){
+            let player = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()
+            if (player == 'Rock' && computerSelection == 'Scissors'){
+                 return "You Win! Rock beats Scissors"
+            }
+            else if (player == 'Rock' && computerSelection == 'Paper'){
+                return "You Lose! Paper beats Rock"
+            }
+            else if (player == 'Paper' && computerSelection == 'Rock'){
+                return "You Win! Paper beats Rock"
+            }
+            else if (player == 'Paper' && computerSelection == 'Scissors'){
+                 return "You Lose! Scissors beats Paper"
+            }
+            else if (player == 'Scissors' && computerSelection == 'Paper'){
+                 return "You Win! Scissors beats Paper"
+            }
+            else if (player == 'Scissors' && computerSelection == 'Rock'){
+                 return "You Lose! Rock beats Scissors"
+            }
+            else {
+                return "It's a tie!"
+            }
+        }
+
+        game()
+    </script>
+</body>
+
+</html>
